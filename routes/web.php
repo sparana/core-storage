@@ -12,5 +12,16 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+	echo "CoreStorage v0.1";
+});
+
+$app->group(['prefix' => 'api'], function() use ($app){
+	$app->get('/list/{name}/{id}',		'FileStoreController@listFile');
+	$app->get('/file/{name}/{id}',		'FileStoreController@getFile');
+	$app->delete('/file/{name}/{id}',		'FileStorage@deleteFile');
+	$app->post('/file/{name}/{id}',		'FileStorage@uploadFile');
+
+//     $app->get('/admin/check/{name}',	'UserManageController@exist');
+	$app->get('/admin/create/{name}',	'UserManageController@createUser');
+	$app->get('/admin/delete/{name}',	'UserManageController@deleteUser');
 });

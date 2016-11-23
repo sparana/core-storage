@@ -308,6 +308,7 @@ class ComposerStaticInit24fbda54802f9cf042dde278dc71b3a9
     );
 
     public static $classMap = array (
+        'CreateIndexTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_20_044507_create_index_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'ExampleTest' => __DIR__ . '/../..' . '/tests/ExampleTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
