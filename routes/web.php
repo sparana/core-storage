@@ -17,8 +17,8 @@ $app->get('/', function () use ($app) {
 
 $app->group(['prefix' => 'api'], function() use ($app){
 	$app->get('/list/{name}',		'FileStoreController@listFile');
-	$app->get('/file',		'FileStoreController@getFile');
-	$app->delete('/file',		'FileStorage@deleteFile');
-	$app->post('/file',		'FileStorage@uploadFile');
+	$app->post('/file',			    'FileStoreController@getFile');
+	$app->delete('/file/delete',    'FileStoreController@deleteFile');
+	$app->post('/file/upload',	    'FileStoreController@uploadFile');
 
 });
