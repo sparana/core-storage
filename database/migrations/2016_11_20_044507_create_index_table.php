@@ -13,11 +13,7 @@ class CreateIndexTable extends Migration
      */
     public function up()
     {
-        Schema::create('index', function (Blueprint $table) {
-            $table->increments('id');
-			$table->string('username')->unique();
-            $table->timestamps();
-        });
+	    $collec = (new MongoDB\Client)->fileapi->index;
     }
 
     /**
@@ -27,6 +23,6 @@ class CreateIndexTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('index');
+	    $mongo = new MongoDB\Client;
     }
 }

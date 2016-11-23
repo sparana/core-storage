@@ -13,6 +13,7 @@ class ComposerStaticInit24fbda54802f9cf042dde278dc71b3a9
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
+        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -44,6 +45,7 @@ class ComposerStaticInit24fbda54802f9cf042dde278dc71b3a9
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MongoDB\\' => 8,
         ),
         'L' => 
         array (
@@ -153,6 +155,10 @@ class ComposerStaticInit24fbda54802f9cf042dde278dc71b3a9
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'MongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
         ),
         'Laravel\\Lumen\\' => 
         array (
