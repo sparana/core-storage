@@ -10,7 +10,7 @@ class FileStoreController extends Controller
 	private $db;
 
 	public function __construct(){
-		$this->db = (new MongoDB\Client)->testing;
+		$this->db = (new MongoDB\Client)->filesapi;
 	}
 
 	public function deleteFile(Request $req) {
@@ -24,13 +24,10 @@ class FileStoreController extends Controller
 
 	public function getFile(Request $req) {
 		$req = json_decode($req->getContent(),TRUE);
-		$res = $this->db->{$req['username']}->find([
+		$res = $this->db->{$req['username']}->findOne([
 			'username'=>$req['username'],
 			'filename'=>$req['filename']]);
-		foreach($res as $var){
-			$arrays[]= json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($var)));
-		}
-		return response()->json($arrays);
+		return response()->json(json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($res))));
 	}
 
 	public function listFile($name) {
