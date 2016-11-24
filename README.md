@@ -5,9 +5,13 @@ API for data storage.
 ## API
 
 **get /api/list/{name}** Returns JSON array with 'filename' and 'username' fieds.
+
 **post /api/file** Returns 'filename', 'username' and 'filecontent' in JSON.
+
 **delete /api/file/delete** Returns 'status' in JSON.
+
 **post /api/file/upload** Returns 'status' in JSON.
+
 
 ## License
 
