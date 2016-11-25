@@ -26,7 +26,9 @@ class FileStoreController extends Controller
 		$req = json_decode($req->getContent(),TRUE);
 		$res = $this->db->{$req['username']}->findOne([
 			'username'=>$req['username'],
-			'filename'=>$req['filename']]);
+			'filename'=>$req['filename']],['projection'=>
+			['username'=>1,'filename'=>1,'type'=>1,'filecontent'=>1, 'size'=>1]]
+		);
 		return response()->json(json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($res))));
 	}
 
@@ -40,12 +42,7 @@ class FileStoreController extends Controller
 
 	public function uploadFile(Request $req) {	
 		$arr = json_decode($req->getContent(),TRUE);
-		$insertdata = array(
-			'username' => $arr['username'],
-			'filename' => $arr['filename'],
-			'filecontent' => $arr['filecontent']
-		);
-		$res = $this->db->{$arr['username']}->insertOne($insertdata);
+		$res = $this->db->{$arr['username']}->insertOne($arr);
 		return response()->json(["status" => $res->getInsertedCount()]);
 	}
 }
